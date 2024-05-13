@@ -155,3 +155,70 @@ a = "       hi      "
 print(a)
 print(a.strip())
 # %%
+# 8) replace()
+a = "Life is too short"
+a.replace("Life", "Your leg")
+
+# %%
+# 9) split() : 문자열 나누기
+print(a.split()) # 공백 기준 나누기
+
+b = "a:b:c:d"
+print(b.split(":"))
+
+# %%
+# 10) splitlines() : 엔터 기준 나누기
+c = "하나\n둘\n셋"
+print(c.splitlines())
+print(c.split("\n"))
+
+# %%
+# 11) is~ : True, False 로 결과 나옴(문자열 구성 파악)
+print("1234".isdigit()) # 숫자
+print("abcd".isalpha()) # 알파벳
+print("abc123".isalnum()) # 알파벳 숫자
+print("abcd".islower()) # 소문자
+print("ABCD".isupper()) # 대문자
+print("    ".isspace()) # 공백
+
+# %%
+# 대 <=> 소
+name = "KennRY"
+print(name.swapcase())
+
+for s in name:
+    if s.islower():
+        print(s.upper(), end="")
+    else:
+        print(s.lower(), end="")
+
+# %%
+# 년월일 입력 받은 후 10년 후 날짜 출력
+# 2024/05/13(입력예시)
+date1 = input("년월일 입력")
+pos = date1.find("/")
+year = int(date1[:pos]) + 10
+print("입력한 날짜의 10년후 %s" % (str(year) + "년" + date1[5:7] + "월" + date1[8:] + "일"))
+
+# 두번째 방법
+date1 = date1.split("/") # ['2024', '05', '13']
+print("입력한 날짜의 10년후 %s" % (str(int(date1[0])) + "년" + date1[1] + "월" + date1[2] + "일"))
+
+# %%
+# 사이트별 비밀번호 작성
+# http://naver.com
+# 규칙 1) http:// 제외 => naver.com
+# 규칙 2) 처음에 나오는 . 이후 부분 제외 : naver
+# 규칙 3) 남은 글자 중 처음 세자리 + 글자 개수 + 글자 내 'e' 문자 개수 + '!' 로 구성 : nav51!
+str1 = input("사이트 주소")
+str1 = str1[7:str1.index(".")]
+print(str(str1[0:3]) + str(len(str1)) + str(str1.count("e")) + "!")
+
+# 선생님 풀이
+url = "http://naver.com"
+data = url[7:]
+data = data[:data.find(".")]
+result = data[:3] + str(len(data)) + str(data.count("e")) + "!"
+print(result)
+
+# %%
