@@ -14,3 +14,20 @@ python
 spring boot - sqlite 있었음
 
 sqliteportable 설치
+
+
+자바 - maven
+pthon - pip
+
+pip : 파이썬 모듈이나 패키지를 쉽게 설치할 수 있도록 도와주는 도구
+pip install 패키지명
+pip install 패키지명==1.0.4 (버전)
+
+pip install -- upgrade 패키지명 (버전업)
+
+pip uninstall 패키지명
+
+pip list
+
+
+
