@@ -1,0 +1,16 @@
+*.ipynk : 주피터 노트북 파일
+
+주피터노트북 : 셀단위로 실행
+
+.csv
+comma separated values / , 로 구별되는 text파일
+(공백, |, ...)
+
+
+파이썬 내부 DB > SQLite (핸드폰) 메모리 내장 DB
+python
+ - 내장 DB : sqlite
+
+spring boot - sqlite 있었음
+
+sqliteportable 설치

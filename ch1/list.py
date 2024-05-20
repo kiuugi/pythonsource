@@ -222,3 +222,152 @@ print(f"총합 : {total}, 평균 : {total/len(a_class)}")
 print(f"총합 : {sum(a_class)}, 평균 : {sum(a_class)/len(a_class)}")
 
 # %%
+# 리스트 컴프리헨션(comprehension)
+
+numbers = []
+
+# 요소 추가
+numbers.append(1)
+numbers.append(2)
+numbers.append(3)
+numbers.append(4)
+numbers.append(5)
+numbers.append(6)
+numbers.append(7)
+numbers
+
+# %%
+numbers = []
+for i in range(1, 101):
+    numbers.append(i)
+numbers
+
+# %%
+numbers = list(range(1, 101))
+numbers
+
+# %%
+numbers = [x for x in range(1, 101)]
+numbers
+
+# %%
+a = [1, 2, 3, 4]
+# a 라는 리스트 요소에 *3 을 한 후 결과를 새로운 리스트로 돌려받기
+result = []
+for num in a:
+    result.append(num * 3)
+result
+
+# %%
+result2 = [num * 3 for num in a]
+result2
+
+# %%
+b = ["값", "을", "병", "정"]
+# b 라는 리스트에서 정 이라는 요소를 제외하고 새로운 리스트로 돌려받기
+result2 = []
+for x in b:
+    if x != "정":
+        result2.append(x)
+result2
+
+# %%
+result2 = [x for x in b if x != "정"]
+result2
+
+# %%
+a = [1, 2, 3, 4]
+# 짝수에만 3을 곱해서 담기 : [6,12]
+result2 = [num * 3 for num in a if num % 2 == 0]
+result2
+
+# %%
+# 1~100 숫자 중에서 홀수만 담아서 새로운 리스트로 생성
+a = [x for x in range(1, 101) if x % 2 != 0]
+a
+# %%
+list1 = ["nice", "study", "python", "anaconda", "!"]
+# 5글자 이상의 요소만 담아서 새로운 리스트로 생성
+a = []
+for x in list1:
+    if len(x) > 5:
+        a.append(x)
+a
+
+# %%
+a = [x for x in list1 if len(x) >= 5]
+a
+
+# %%
+list2 = ["A", "B", "c", "D", "e", "F", "G", "h"]
+# 소문자만 담아서 새로운 리스트로 생성
+a = [x for x in list2 if x.islower()]
+a
+# %%
+# [1,2,3,4,] ==> [2,4,6,8]
+print(
+    [
+        x * 2
+        for x in [
+            1,
+            2,
+            3,
+            4,
+        ]
+    ]
+)
+# [0,1,2,3,4] ==> [0,1,4,9,16]
+print([x * x for x in range(5)])
+
+# %%
+# [1,2,3]
+# [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+print([[x, x + 1, x + 2] for x in [1, 2, 3]])
+
+# %%
+# 주차장 프로그램 작성
+# pass 그 코드 잠시 보류 나중에 만들거나 필요없는 코드지만 오류나는것을 방지
+parking_lot = []
+top, car_name = 0, "A"
+while True:
+    no = int(input("[1] 자동차 넣기 | [2] 자동차 빼기 | [3] 종료 :"))
+
+    if no <= 3:
+        if no == 1:
+            if top >= 5:
+                print("주차장 꽉 참")
+            else:
+                parking_lot.append(car_name)
+                print(f"{car_name} 자동차 들어감. 주차장 상태 ==> {parking_lot}")
+                top += 1
+                car_name = chr(ord(car_name) + 1)
+        elif no == 2:
+            if top > 0:
+                outCar = parking_lot.pop()
+                print(f"{outCar} 자동차 나감. 주차장 상태 ==> {parking_lot}")
+                top -= 1
+                car_name = chr(ord(car_name) - 1)
+            else:
+                print("주차장이 비어있음")
+        else:
+            print("프로그램 종료")
+            break
+    else:
+        print("번호를 확인해 주세요")
+
+# %%
+# ord() : 문자열의 유니코드값 반환
+# chr() : 유니코드값의 문자열 반환
+print(ord("A"))
+print(chr(65))
+
+# %%
+# enumerate() : 열거형/ 리스트, 튜플, 문자열 값을 입력받아 인덱스 값을 포함하는 객체로 만들어 줌
+list1 = ["body", "foo", "bar"]
+for x in enumerate(list1):
+    print(x)
+
+for idx, value in enumerate(list1, start=1):
+    print(idx, value)
+
+# %%
