@@ -28,6 +28,9 @@ pip install -- upgrade 패키지명 (버전업)
 pip uninstall 패키지명
 
 pip list
+지금 쓰는거
+beautifulsoup4
+fake-useragent
 
 크롤링 : 주기적으로 / 무작위로 데이터 수집
 스크랩핑 : 특정 항목에 대해서만 수집
