@@ -2,16 +2,17 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.error import HTTPError
 from openpyxl import Workbook
-import re
 
 wb = Workbook()
 ws = wb.active
 
-ws.title = "naver Open"
+ws.title = "도서검색"
 # 너비 조정
-ws.column_dimensions["B"].width = 100
-ws.column_dimensions["C"].width = 60
-ws.append(["순위", "상품명", "판매경로"])
+ws.column_dimensions["B"].width = 30
+ws.column_dimensions["C"].width = 100
+ws.column_dimensions["D"].width = 20
+ws.column_dimensions["E"].width = 20
+ws.append(["순위", "isbn", "책제목", "할인가격"])
 
 headers = {
     "X-Naver-Client-Id": "SR_E7i6U8jju7V_SEf0T",
@@ -19,11 +20,11 @@ headers = {
 }
 
 start, num = 1, 1
-for idx in range(10):
+for idx in range(3):
     # idx : 0~9
     start_num = start + (idx * 100)
-    url = "https://openapi.naver.com/v1/search/shop.json"
-    params = {"query": "아이폰", "display": "100", "start": str(start_num)}
+    url = "https://openapi.naver.com/v1/search/book.json"
+    params = {"query": "히가시노 게이고", "display": "100", "start": str(start_num)}
     r = requests.get(url, headers=headers, params=params)
 
     # print(r.url)
@@ -33,13 +34,12 @@ for idx in range(10):
     # print(data)
     # print(data["items"])
     for idx, item in enumerate(data["items"], 1):
-        # print(idx, item["title"], item["link"])  # <b>아이폰</b>
-        title = re.sub("<.*?>", "", item["title"])
-        ws.append([num, title, item["link"]])
+        print(item)
+        ws.append([num, item["isbn"], item["title"], item["discount"]])
         num += 1
 
 
 # 저장
 base_dir = "./crawl/file/"
-wb.save(base_dir + "naver.xlsx")
+wb.save(base_dir + "히가시노게이고.xlsx")
 wb.close()
