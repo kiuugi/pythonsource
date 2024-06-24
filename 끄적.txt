@@ -47,5 +47,29 @@ fake-useragent
 
 
 
+python(django)터미널 명령어
+
+django(python) == spring boot
+~\myapp1>django-admin startproject config .
+~\myapp1> python manage.py runserver
+~\myapp1> python manage.py startapp todo
+~\myapp1> python manage.py migrate (데이터베이스 변경사항 적용)
+~\myapp1> python manage.py createsuperuser (어드민 계정 생성)
+
+프로젝트 아래에 db 가 생성됨
+내장DB 연동
+
+스프링 MVC 패턴 : Model(Database), View(화면-jsp, html), Controller(Controller + Service
+	==
+장고 MTV 패턴 : Model(Datavase), Templates(html), View(View)
+
+
+
+
+
+
+
+
+
 
 
