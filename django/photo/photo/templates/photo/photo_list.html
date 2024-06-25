@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block style %}
+  <style>
+    .col img {
+      width: 300px;
+    }
+  </style>
+{% endblock style %}
+{% block content %}
+  <div class="row pb-3">
+    <div class="col">
+      <h2>Photo List</h2>
+    </div>
+    <div class="col text-center">
+      <h3>
+        <a href="{% url "photo_create" %}" class="btn btn-success">New Photo</a>
+      </h3>
+    </div>
+  </div>
+  {% for photo in photos %}
+    <div class="row">
+      <div class="col">
+        <h2>
+          <a href="{% url "photo_detail" id=photo.id %}">{{photo.title}}</a>
+        </h2>
+      </div>
+      <div class="col">
+        <img src="{{photo.image}}" alt="">
+      </div>
+      <div class="col">
+        <p>{{photo.author}},
+          {{photo.price}}</p>
+      </div>
+    </div>
+    {% empty %}
+    <div class="row">
+      <div class="col">사진이 없습니다.</div>
+    </div>
+  {% endfor %}
+{% endblock content %}

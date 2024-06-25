@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  {% comment %} <form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+  </form> {% endcomment %}
+  <div class="row mb-3">
+    <h2>Photo Edit</h2>
+  </div>
+  <div class="row">
+    <form action="" method="post">
+      {% include "errors.html" %}
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{form.title.value|default_if_none:''}}" readonly/>
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" name="author" value="{{form.author.value|default_if_none:''}}" readonly/>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="text" class="form-control" id="image" name="image" value="{{form.image.value|default_if_none:''}}" />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" name="description">{{form.description.value|default_if_none:''}}</textarea>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" value="{{form.price.value|default_if_none:''}}" />
+      </div>
+      <div>
+        <button class="btn btn-primary">등록</button>
+        <a href="{% url "photo_list" %}" class="btn btn-success">목록</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

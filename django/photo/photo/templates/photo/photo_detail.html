@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block style %}
+  <style>
+    .col img {
+      width: 300px;
+    }
+  </style>
+{% endblock style %}
+{% block content %}
+  <div class="row pb-3">
+    <div class="col">
+      <a href="{% url "photo_edit" id=photo.id %}" class="btn btn-success">Edit Photo</a>
+      <a href="{% url "photo_remove" id=photo.id %}" class="btn btn-danger">Delete Photo</a>
+      <a href="{% url "photo_list" %}" class="btn btn-info">List Photo</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src="{{photo.image}}" alt="">
+      <p>{{photo.description}}</p>
+      <p>{{photo.author}},
+        {{photo.price}}원</p>
+    </div>
+  </div>
+{% endblock content %}

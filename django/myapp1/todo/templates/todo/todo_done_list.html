@@ -10,21 +10,21 @@
     </a>
   </div>
   <div class="col text-end">
-    <a href="{% url "done_list" %}" class="btn btn-primary">완료된 Todo 목록</a>
+    <a href="{% url "list" %}" class="btn btn-primary">진행중인 Todo 목록</a>
   </div>
 </div>
 <table class="table">
-  {% for todo in todos %}
+  {% for done in dones %}
   <tr>
     <th>
-      <a href="{% url "read" id=todo.id %}" class="text-rest text-decoration-none">{{todo.title}}</a>
-      {% if todo.important %}
+      <a href="{% url "read" id=done.id %}" class="text-rest text-decoration-none">{{done.title}}</a>
+      {% if done.important %}
       <span class="badge text-bg-danger">!</span>
       {% endif %}
     </th>
     <td class="text-end">
-      <a href="{% url "done" id=todo.id %}" class="btn btn-success btn-sm">완료</a>
-      <a href="{% url "edit" id=todo.id %}" class="btn btn-outline-primary btn-sm">수정</a>
+      <a href="{% url "done" id=done.id %}" class="btn btn-success btn-sm">취소</a>
+      <a href="" class="btn btn-outline-primary btn-sm">수정</a>
     </td>
   </tr>
   {% endfor %}
