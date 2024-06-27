@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>index</h1>
+    <ul>
+      {% if not user.is_authenticated %}
+        <li>
+          <a href="{% url "common:register" %}">회원가입</a>
+        </li>
+        <li>
+            {% comment %} common(앱이름):주소 {% endcomment %}
+          <a href="{% url "common:login" %}">로그인</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="#" id="logout">로그아웃</a>
+        </li>
+        <li>
+          <a href="{% url "common:password_change" %}">비밀번호 변경</a>
+        </li>
+        <li>
+          <a href="{% url "common:password_reset" %}">비밀번호 변경</a>
+        </li>
+      {% endif %}
+    </ul>
+    <form action="{% url "common:logout" %}" method="post">
+        {% csrf_token %}
+    </form>
+    <script src="{% static "/js/index.js" %}"></script>
+  </body>
+
+</html>

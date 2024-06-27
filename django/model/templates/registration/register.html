@@ -13,11 +13,12 @@
       <form action="" method="post">
         {% include "form_errors.html" %}
         {% csrf_token %}
+        {% comment %} 그냥 form 부르면 화면단을 바꿀 수 없어서 태그에다가 끼워넣는식으로함 {% endcomment %}
         {% for field in form %}
           <div class="form-grup mb-2">
             <label for="{{field.id_or_label}}">{{field.label}}</label>
             <input type="{{field.widget_type}}" name="{{field.name}}" id="{{field.id_or_label}}" class="form-control">
-            <span class="help-text">{{field.help_text}}</span>
+            <span class="help-text text-danger small">{{field.help_text}}</span>
           </div>
         {% endfor %}
         <div class="form-group mb-2">
