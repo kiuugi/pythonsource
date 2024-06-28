@@ -26,6 +26,7 @@ urlpatterns = [
     # path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("accounts.urls")),
     path("", index, name="index"),
+    # 이거 에러나면 Redirect 쓰는게 나을듯
 ]
 
 # admin/

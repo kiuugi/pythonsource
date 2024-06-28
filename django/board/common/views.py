@@ -8,6 +8,7 @@ def register(request):
         form = UsersForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect("common:login")
 
     else:
         form = UsersForm()
