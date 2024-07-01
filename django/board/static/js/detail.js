@@ -8,3 +8,11 @@ deleteAll.forEach((item) => {
     }
   });
 });
+
+const actionForm = document.querySelector("#actionForm");
+document.querySelector("#list").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  actionForm.action = e.target.getAttribute("href");
+  actionForm.submit();
+});

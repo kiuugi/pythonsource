@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-00yq%3e69&h@)rj2a^b6+9-ti!%w1$sz^*wvuuq-72vctgq*(j"
+SECRET_KEY = "django-insecure-_b97ki9ih)7ks@!&xfjv51e&b6wv1=#0ic*k_zx*_7+ul$s#a2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "board",
+    "blog",
     "common",
 ]
 
@@ -52,7 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
-# TEMPLATES 찾는 위치 변경 => "DIRS": [BASE_DIR / "templates"],
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -119,7 +119,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-# BASE_DIR == 프로젝트 폴터
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -130,13 +129,6 @@ LOGIN_REDIRECT_URL = "/"
 
 LOGOUT_REDIRECT_URL = "/"
 
-
-# 내 네이버 이메일을 이용해 client 에게 이메일 전송하기
-DEFAULT_FROM_EMAIL = "kakamuner@naver.com"
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-EMAIL_HOST = "smtp.naver.com"
-EMAIL_PORT = 465
-EMAIL_HOST_USER = "kakamuner@naver.com"
-EMAIL_HOST_PASSWORD = "guilty99"
+# 파일 업로드 설정
+MEDIA_ROOT = Path(BASE_DIR, "media")
+MEDIA_URL = "/media/"

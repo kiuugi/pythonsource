@@ -18,9 +18,18 @@ class Question(models.Model):
     )  # author 에서 같은 User를 사용하기 때문에 구별할 이름을 붙여줘야함
     # M:N의 관계이기 때문에 따로 테이블을 만들어줌
     # 하지만 따로 테이블을 만든것은 아니기때문에 여기서는 Question.vote를 통해서 들어가야함
+    view_cnt = models.BigIntegerField(default=0)
 
     def __str__(self) -> str:
         return self.subject
+
+
+class QuestionCount(models.Model):
+    ip = models.CharField(max_length=30)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    def __unique__(self):
+        return self.ip
 
 
 class Answer(models.Model):

@@ -97,6 +97,12 @@ select * from person where first_name='park';
 	   Person.objects.filter(first_name__icontains='PA') => 대소문자 구분 X
 
 
+python manage.py shell
 
-
+from blog.models import Post
+from django.contrib.auth.models import User
+user = User.objects.get(id=1)
+for i in range(100):
+	p = Post(title='테스트 데이터:[%03d]' % i, content='내용없음', user=user)
+	p.save()
 

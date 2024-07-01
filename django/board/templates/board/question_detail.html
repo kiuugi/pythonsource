@@ -189,7 +189,7 @@
     {% endfor %}
     <!-- 답변 한 개 영역 종료-->
     <div>
-      <a href="{% url "board:question_list" %}" class="btn btn-sm btn-primary">목록으로</a>
+      <a href="{% url "board:question_list" %}" class="btn btn-sm btn-primary" id='list'>목록으로</a>
     </div>
     <form action="{% url "board:answer_create" question.id %}" method="post" class="my-3">
       <!-- csrf token-->
@@ -202,6 +202,12 @@
       <input type="submit" value="답변 등록" class="btn btn-primary" {% if not user.is_authenticated %} disabled="disabled" {% endif %}/>
     </form>
   </div>
+  {% comment %} 목록으로 클릭 시 이동할 폼 {% endcomment %}
+  <form action="" method="get" id="actionForm">
+    <input type="hidden" name="keyword" value="{{keyword|default_if_none:''}}" id="keyword"/>
+    <input type="hidden" name="page" value="{{page|default_if_none:''}}" id="page"/>
+    <input type="hidden" name="so" value="{{so|default_if_none:''}}" id="so"/>
+  </form>
 {% endblock content %}
 {% block script %}
   <script src="{% static "js/detail.js" %}"></script>
