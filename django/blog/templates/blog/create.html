@@ -20,6 +20,11 @@
           <label for="image">이미지</label>
           <input type="file" name="image" id="image" class="form-control"></input>
         </div>
+        <div class="form-group mb-3">
+          <label for="tags">태그</label>
+          <input type="text" name="tags" id="tags" class="form-control" value="{{form.tags.value|default_if_none:''}}"></input>
+          <small>태그는 콤마로 구분해서 입력하세요.</small>
+        </div>
         <input type="submit" value="질문 등록" class="btn btn-primary mb-3"/>
       </form>
     </div>

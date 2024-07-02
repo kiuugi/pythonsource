@@ -106,3 +106,32 @@ for i in range(100):
 	p = Post(title='테스트 데이터:[%03d]' % i, content='내용없음', user=user)
 	p.save()
 
+
+
+
+서버운영
+: 운영체제(리눅스, 윈도우즈 서버) 설치
+: 데이터베이스 서버 설치
+: 웹서버 설치
+: 도메인 등록
+
+=> 클라우드 시스템
+: AWS(아마존웹서비스)
+: Azure(MS 애저)
+: 오라클, ...
+
+
+
+
+ssh -i "C:\Users\soldesk\aws\aws_kiuugi.pem" ubuntu@ec2-43-201-193-75.ap-northeast-2.compute.amazonaws.com
+
+도커 설치
+curl -fsSL https://get.docker.com | sudo sh
+
+몽고디비
+ json 형태로 삽입, 삭제 가능
+
+
+
+
+

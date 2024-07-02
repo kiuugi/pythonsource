@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-10 mb-3" id="like" data-post="{{post.id}}">
+    {% comment %} {% if is_liked %} {% endcomment %}
+      <span class="like {% if is_liked %}show{% endif %}">
+        <i class="fa-solid fa-heart fg-lg" style="color: #f70808;"></i>
+      </span>
+    {% comment %} {% else %} {% endcomment %}
+      <span class="dislike {% if not is_liked %}show{% endif %}">
+        <i class="fa-regular fa-heart fa-lg" style="color: #f70808;"></i>
+      </span>
+    {% comment %} {% endif %} {% endcomment %}
+    <span class="like-total d-inline-block mx-2 fs-6">
+      좋아요
+      <span>{{post.likes.count}}</span>개
+    </span>
+  </div>
+</div>

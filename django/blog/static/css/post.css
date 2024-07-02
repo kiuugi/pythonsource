@@ -1,0 +1,12 @@
+span {
+  cursor: pointer;
+}
+
+.dislike,
+.like {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
